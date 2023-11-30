@@ -40,15 +40,17 @@ function createNewBookInTable(book) {
 	const isbnCell = document.createElement('td');
 	isbnCell.innerText = book.isbn;
 
+	const btnCell = document.createElement('td');
     const clearBtn = document.createElement('button');
 	clearBtn.className = 'delete';
 	clearBtn.innerHTML = `<span class="material-icons">close</span>`
-
+    btnCell.appendChild(clearBtn);
+	
 	clearBtn.addEventListener('click', () => {
 		newRow.parentNode.removeChild(newRow);
 	});
 	
-	newRow.append(titleCell,authorCell,isbnCell,clearBtn);
+	newRow.append(titleCell,authorCell,isbnCell,btnCell);
 	tableBody.appendChild(newRow);
 }
 
